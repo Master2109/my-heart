@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="sw" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>I Love You - Romantic Page</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom font utility classes */
+        .font-love {
+            font-family: 'Great Vibes', cursive;
+        }
+        .font-sweet {
+            font-family: 'Caveat', cursive;
+        }
+        .font-sans-custom {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Romantic Ambient Animated Background Gradient */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #0d021a, #2a0845, #4a0033, #64113f, #1e0024);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            touch-action: manipulation;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glowing Animated Text Effect */
+        .glow-title {
+            background: linear-gradient(to right, #ff758c, #ff7eb3, #ffb199, #f76b1c, #ff758c);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shineText 3s linear infinite, floatTitle 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.6));
+        }
+
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+
+        @keyframes floatTitle {
+            0% { transform: translateY(0px) scale(1); }
+            100% { transform: translateY(-8px) scale(1.02); }
+        }
+
+        /* Pulse Main Heart Icon */
+        .pulse-heart-icon {
+            animation: heartPulse 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+            filter: drop-shadow(0 0 20px rgba(255, 42, 117, 0.8));
+        }
+
+        @keyframes heartPulse {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.22); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(1); }
+        }
+
+        /* Continuous Floating Background Hearts */
+        .floating-heart {
+            position: absolute;
+            bottom: -60px;
+            pointer-events: none;
+            animation: floatUpAnimation linear forwards;
+            will-change: transform, opacity;
+        }
+
+        @keyframes floatUpAnimation {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.6);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.9;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-115vh) rotate(360deg) scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        /* Interactive Click/Tap Pop Hearts Particle */
+        .burst-heart {
+            position: absolute;
+            pointer-events: none;
+            animation: burstAnimation 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            will-change: transform, opacity;
+        }
+
+        @keyframes burstAnimation {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.2) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(var(--scale)) rotate(var(--rot));
+            }
+        }
+
+        /* Glassmorphism Card Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 192, 203, 0.1);
+        }
+
+        /* Soft Background Glow Orbs */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.35;
+            pointer-events: none;
+            animation: orbMove 12s infinite ease-in-out alternate;
+        }
+
+        @keyframes orbMove {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 40px) scale(1.1); }
+        }
+    </style>
+</head>
+<body class="h-full w-full relative flex items-center justify-center min-h-screen select-none overflow-hidden p-4 sm:p-6 md:p-8">
+
+    <!-- Ambient Lighting Background Orbs -->
+    <div class="glow-orb w-64 h-64 sm:w-96 sm:h-96 bg-pink-600 top-5 left-5"></div>
+    <div class="glow-orb w-64 h-64 sm:w-96 sm:h-96 bg-purple-700 bottom-5 right-5" style="animation-delay: -6s;"></div>
+    <div class="glow-orb w-48 h-48 sm:w-80 sm:h-80 bg-rose-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="animation-delay: -3s;"></div>
+
+    <!-- Canvas for Floating Sparkles Effect -->
+    <canvas id="sparkleCanvas" class="absolute inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- Main Center Glass Card Container -->
+    <main class="glass-card relative z-10 w-full max-w-xs sm:max-w-md md:max-w-xl lg:max-w-2xl rounded-3xl p-6 sm:p-8 md:p-10 text-center flex flex-col items-center justify-center my-auto transition-all duration-300">
+        
+        <!-- Top Pulsing Heart Icon -->
+        <div class="pulse-heart-icon text-pink-500 mb-2 sm:mb-4">
+            <i class="fa-solid fa-heart text-5xl sm:text-6xl md:text-7xl lg:text-8xl"></i>
+        </div>
+
+        <!-- Main "I Love You" Text - Scaled for all viewports -->
+        <h1 class="font-love glow-title text-5xl sm:text-7xl md:text-8xl lg:text-9xl py-1 px-2 tracking-wide font-bold leading-tight drop-shadow-lg">
+            I Love You
+        </h1>
+
+        <!-- Subtitle Messages -->
+        <div class="mt-2 sm:mt-4 space-y-1 sm:space-y-2">
+            <p id="sweetMessage" class="font-sweet text-pink-200 text-2xl sm:text-3xl md:text-4xl opacity-95 transition-all duration-500 tracking-wide">
+                ❤️ Wewe ni wangu wa pekee daima ❤️
+            </p>
+            <p id="englishSubMessage" class="font-sans-custom text-pink-300/80 text-xs sm:text-sm md:text-base font-light tracking-wider uppercase">
+                You make my world complete
+            </p>
+        </div>
+
+        <!-- Interactive Action Button -->
+        <div class="mt-6 sm:mt-8 md:mt-10 w-full flex justify-center">
+            <button id="loveBtn" class="group relative inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-purple-600 text-white font-semibold text-base sm:text-lg md:text-xl shadow-lg shadow-pink-600/40 hover:shadow-pink-500/70 hover:scale-105 active:scale-95 transition-all duration-300 border border-pink-300/30 overflow-hidden cursor-pointer">
+                <!-- Inner button pulse glow -->
+                <span class="absolute inset-0 w-full h-full bg-white/20 group-hover:scale-110 transition-transform duration-300 rounded-full blur-md opacity-0 group-hover:opacity-100"></span>
+                <i class="fa-solid fa-heart-pulse animate-bounce text-pink-200 text-lg sm:text-xl"></i>
+                <span id="btnText" class="relative z-10 font-sans-custom">Bonyeza Hapa!</span>
+            </button>
+        </div>
+
+        <!-- Touch Instruction Note -->
+        <p class="text-pink-300/60 text-xs sm:text-sm mt-4 font-sans-custom">
+            ✨ Tap au bonyeza sehemu yoyote kuona miujiza ✨
+        </p>
+    </main>
+
+    <!-- Floating Hearts Layer -->
+    <div id="heartsLayer" class="absolute inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
+    <!-- Background Audio (Optional Romantic Soft Melody) -->
+    <audio id="loveAudio" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // DOM Elements
+        const heartsLayer = document.getElementById('heartsLayer');
+        const loveBtn = document.getElementById('loveBtn');
+        const btnText = document.getElementById('btnText');
+        const sweetMessage = document.getElementById('sweetMessage');
+        const englishSubMessage = document.getElementById('englishSubMessage');
+        const audio = document.getElementById('loveAudio');
+
+        // Romantic Kiswahili & English Love Quotes for Interactive Button
+        const romanticQuotes = [
+            { sw: "❤️ Wewe ni wangu wa pekee daima ❤️", en: "You make my world complete" },
+            { sw: "🌹 Nanakupenda kupita kiasi! 🌹", en: "My heart belongs to you forever" },
+            { sw: "💖 Maisha yangu ni matamu kwa sababu yako 💖", en: "You are my sunshine on dark days" },
+            { sw: "✨ Mpenzi wangu wa faida na furaha yangu ✨", en: "Every moment with you is magic" },
+            { sw: "👑 Malkia/Mfalme wa moyo wangu 👑", en: "You are my greatest blessing" },
+            { sw: "💕 Pendo lako ni tiba ya nafsi yangu 💕", en: "I love you more than words can say" }
+        ];
+
+        let currentQuoteIndex = 0;
+        let isAudioPlaying = false;
+
+        // Color Palette for Hearts
+        const heartColors = [
+            '#ff2a75', '#ff4b8b', '#ff75a0', '#ff0055', 
+            '#e60073', '#ff80bf', '#ff3366', '#ff6699', '#ff99bb'
+        ];
+
+        const heartIcons = ['fa-heart', 'fa-heart', 'fa-heart', 'fa-heart-pulse'];
+
+        // 1. Continuous Floating Background Hearts Generator
+        function createFloatingHeart() {
+            const heart = document.createElement('i');
+            const randomIcon = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+            const randomColor = heartColors[Math.floor(Math.random() * heartColors.length)];
+            
+            heart.className = `fa-solid ${randomIcon} floating-heart`;
+            heart.style.color = randomColor;
+            
+            // Viewport relative positioning for responsiveness
+            const startLeft = Math.random() * 100; // 0 to 100vw
+            
+            // Dynamic scale according to viewport width
+            const isMobile = window.innerWidth < 640;
+            const minSize = isMobile ? 12 : 18;
+            const maxSize = isMobile ? 28 : 42;
+            const size = Math.random() * (maxSize - minSize) + minSize;
+            
+            const duration = Math.random() * 5 + 5; // 5s to 10s
+            const delay = Math.random() * 2;
+
+            heart.style.left = startLeft + 'vw';
+            heart.style.fontSize = size + 'px';
+            heart.style.animationDuration = duration + 's';
+            heart.style.animationDelay = delay + 's';
+            heart.style.filter = `drop-shadow(0 0 ${size/3}px ${randomColor})`;
+
+            heartsLayer.appendChild(heart);
+
+            // Clean up DOM after animation completes
+            setTimeout(() => {
+                heart.remove();
+            }, (duration + delay) * 1000);
+        }
+
+        // Initialize steady floating hearts flow
+        setInterval(createFloatingHeart, window.innerWidth < 640 ? 450 : 300);
+        for (let i = 0; i < (window.innerWidth < 640 ? 10 : 20); i++) {
+            createFloatingHeart();
+        }
+
+        // 2. Interactive Burst / Heart Explosions on Touch / Tap / Click
+        function createHeartBurst(x, y, count = 12) {
+            const isMobile = window.innerWidth < 640;
+            const finalCount = isMobile ? Math.min(count, 10) : count;
+
+            for (let i = 0; i < finalCount; i++) {
+                const burstHeart = document.createElement('i');
+                const randomIcon = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+                const randomColor = heartColors[Math.floor(Math.random() * heartColors.length)];
+                
+                burstHeart.className = `fa-solid ${randomIcon} burst-heart`;
+                burstHeart.style.color = randomColor;
+                burstHeart.style.left = x + 'px';
+                burstHeart.style.top = y + 'px';
+                
+                const size = Math.random() * (isMobile ? 20 : 30) + 16;
+                burstHeart.style.fontSize = size + 'px';
+
+                // Random scatter velocities
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * (isMobile ? 100 : 180) + 40;
+                const dx = Math.cos(angle) * distance + 'px';
+                const dy = Math.sin(angle) * distance - (Math.random() * 50) + 'px'; // Float upward bias
+                const rot = (Math.random() - 0.5) * 360 + 'deg';
+                const scale = Math.random() * 0.8 + 0.8;
+
+                burstHeart.style.setProperty('--dx', dx);
+                burstHeart.style.setProperty('--dy', dy);
+                burstHeart.style.setProperty('--rot', rot);
+                burstHeart.style.setProperty('--scale', scale);
+                burstHeart.style.filter = `drop-shadow(0 0 8px ${randomColor})`;
+
+                document.body.appendChild(burstHeart);
+
+                setTimeout(() => {
+                    burstHeart.remove();
+                }, 1200);
+            }
+        }
+
+        // Handle Screen Taps/Clicks Everywhere
+        window.addEventListener('pointerdown', (e) => {
+            // Ignore if clicking directly on the button to prevent double triggering
+            if (e.target.closest('#loveBtn')) return;
+            createHeartBurst(e.clientX, e.clientY, 8);
+        });
+
+        // 3. Interactive Button Actions
+        loveBtn.addEventListener('click', (e) => {
+            const rect = loveBtn.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            // Trigger large confetti heart burst
+            createHeartBurst(centerX, centerY, 24);
+
+            // Change Quotes with smooth fade transition
+            sweetMessage.style.opacity = '0';
+            sweetMessage.style.transform = 'translateY(-10px)';
+            englishSubMessage.style.opacity = '0';
+
+            setTimeout(() => {
+                currentQuoteIndex = (currentQuoteIndex + 1) % romanticQuotes.length;
+                sweetMessage.innerText = romanticQuotes[currentQuoteIndex].sw;
+                englishSubMessage.innerText = romanticQuotes[currentQuoteIndex].en;
+
+                sweetMessage.style.opacity = '1';
+                sweetMessage.style.transform = 'translateY(0)';
+                englishSubMessage.style.opacity = '0.8';
+            }, 250);
+
+            btnText.innerText = "Nakupenda Sana! ❤️";
+
+            // Optional background romantic audio playback
+            if (!isAudioPlaying) {
+                audio.play().then(() => {
+                    isAudioPlaying = true;
+                }).catch(() => {
+                    // Audio playback blocked by browser policy until interaction
+                });
+            }
+        });
+
+        // 4. Smooth Canvas Sparkle Background Effect
+        const canvas = document.getElementById('sparkleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Create random sparkles
+        const sparklesCount = window.innerWidth < 640 ? 30 : 65;
+        const sparkles = Array.from({ length: sparklesCount }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 2 + 0.8,
+            alpha: Math.random(),
+            speed: Math.random() * 0.02 + 0.005
+        }));
+
+        function renderSparkles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            sparkles.forEach(s => {
+                s.alpha += s.speed;
+                if (s.alpha > 1 || s.alpha < 0) s.speed = -s.speed;
+
+                ctx.fillStyle = `rgba(255, 192, 203, ${Math.abs(s.alpha)})`;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            requestAnimationFrame(renderSparkles);
+        }
+        renderSparkles();
+    </script>
+</body>
+</html>
